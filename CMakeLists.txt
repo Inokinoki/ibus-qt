@@ -86,6 +86,10 @@ set(
     qibusconfig.h
 )
 
+QT5_WRAP_CPP(
+    ibus_qt_MOC_SRCS
+    ${ibus_qt_HDRS}
+)
 
 add_library(
     ibus-qt
