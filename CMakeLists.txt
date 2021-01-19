@@ -16,6 +16,8 @@ set(VERSION_SNAPDATE "")
 set(LIB_VERSION "1.3.0")
 set(LIB_SOVERSION "1")
 
+set (VERSION ${LIB_VERSION})
+
 find_package(Qt5 5.4 REQUIRED COMPONENTS DBus Gui Xml)
 
 find_package(PkgConfig REQUIRED)
@@ -109,12 +111,20 @@ target_link_libraries(
     Qt5::Core
     Qt5::DBus
     Qt5::Xml
-    Qt5::Gui
     ${DBUS_LIBRARIES}
+)
+
+set (prefix ${CMAKE_INSTALL_PREFIX})
+set (libdir ${CMAKE_INSTALL_PREFIX}/${CMAKE_SHARED_LIBRARY_PREFIX})
+set (includedir ${CMAKE_INSTALL_PREFIX}/include)
+
+configure_file(
+    ibusqt.pc.in
+    ibusqt.pc
+    @ONLY
 )
 
 install(TARGETS ibusqt
     LIBRARY DESTINATION ${LIBDIR})
 install(FILES ${ibusqt_HDRS}
     DESTINATION include/ibusqt COMPONENT Devel)
-
