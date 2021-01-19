@@ -114,6 +114,12 @@ target_link_libraries(
     ${DBUS_LIBRARIES}
 )
 
+install(TARGETS ibusqt
+    LIBRARY DESTINATION ${LIBDIR})
+install(FILES ${ibusqt_HDRS}
+    DESTINATION include/ibusqt COMPONENT Devel)
+
+# Config and install pc file
 set (prefix ${CMAKE_INSTALL_PREFIX})
 set (exec_prefix ${CMAKE_INSTALL_PREFIX})
 set (libdir ${CMAKE_INSTALL_PREFIX}/${CMAKE_SHARED_LIBRARY_PREFIX})
@@ -131,8 +137,3 @@ install(
     DESTINATION
         ${CMAKE_INSTALL_PREFIX}/${CMAKE_SHARED_LIBRARY_PREFIX}/pkgconfig
 )
-
-install(TARGETS ibusqt
-    LIBRARY DESTINATION ${LIBDIR})
-install(FILES ${ibusqt_HDRS}
-    DESTINATION include/ibusqt COMPONENT Devel)
