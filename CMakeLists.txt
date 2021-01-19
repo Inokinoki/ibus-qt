@@ -86,6 +86,8 @@ set(
     qibusconfigproxy.h
     qibusconfigservice.h
     qibusconfig.h
+    qibuspointer.h
+    qibustypes.h
 )
 
 QT5_WRAP_CPP(
