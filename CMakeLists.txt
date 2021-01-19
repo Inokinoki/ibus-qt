@@ -125,6 +125,13 @@ configure_file(
     @ONLY
 )
 
+install(
+    FILES
+        ${CMAKE_BINARY_DIR}/ibusqt.pc
+    DESTINATION
+        ${CMAKE_INSTALL_PREFIX}/${CMAKE_SHARED_LIBRARY_PREFIX}/pkgconfig
+)
+
 install(TARGETS ibusqt
     LIBRARY DESTINATION ${LIBDIR})
 install(FILES ${ibusqt_HDRS}
