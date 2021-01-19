@@ -6,7 +6,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 # ======
 # Project information
-project(ibus-qt)
+project(ibusqt)
 set(AUTHORS "Peng Huang")
 set(MAINTAINER "Peng Huang <shawn.p.huang at gmail dot com>")
 set(VERSION_MAJOR "1")
@@ -31,7 +31,7 @@ link_directories(
 )
 
 set(
-    ibus_qt_SRCS
+    ibusqt_SRCS
     qibusobject.cpp
     qibusserializable.cpp
     qibusattribute.cpp
@@ -59,7 +59,7 @@ set(
 )
 
 set(
-    ibus_qt_HDRS
+    ibusqt_HDRS
     qibusobject.h
     qibusserializable.h
     qibusattribute.h
@@ -87,25 +87,25 @@ set(
 )
 
 QT5_WRAP_CPP(
-    ibus_qt_MOC_SRCS
-    ${ibus_qt_HDRS}
+    ibusqt_MOC_SRCS
+    ${ibusqt_HDRS}
 )
 
 add_library(
-    ibus-qt
+    ibusqt
     SHARED
-    ${ibus_qt_SRCS}
-    ${ibus_qt_MOC_SRCS}
+    ${ibusqt_SRCS}
+    ${ibusqt_MOC_SRCS}
 )
 
 set_target_properties(
-    ibus-qt PROPERTIES
+    ibusqt PROPERTIES
     VERSION ${LIB_VERSION}
     SOVERSION ${LIB_SOVERSION}
 )
 
 target_link_libraries(
-    ibus-qt
+    ibusqt
     Qt5::Core
     Qt5::DBus
     Qt5::Xml
@@ -113,12 +113,8 @@ target_link_libraries(
     ${DBUS_LIBRARIES}
 )
 
-install(TARGETS ibus-qt
+install(TARGETS ibusqt
     LIBRARY DESTINATION ${LIBDIR})
-install(FILES ${ibus_qt_HDRS}
-    DESTINATION include/ibus-qt COMPONENT Devel)
-
-target_link_libraries(
-    ibus-qt
-)
+install(FILES ${ibusqt_HDRS}
+    DESTINATION include/ibusqt COMPONENT Devel)
 
