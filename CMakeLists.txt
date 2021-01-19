@@ -115,6 +115,7 @@ target_link_libraries(
 )
 
 set (prefix ${CMAKE_INSTALL_PREFIX})
+set (exec_prefix ${CMAKE_INSTALL_PREFIX})
 set (libdir ${CMAKE_INSTALL_PREFIX}/${CMAKE_SHARED_LIBRARY_PREFIX})
 set (includedir ${CMAKE_INSTALL_PREFIX}/include)
 
