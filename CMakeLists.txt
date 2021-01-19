@@ -18,7 +18,7 @@ set(LIB_SOVERSION "1")
 
 set (VERSION ${LIB_VERSION})
 
-find_package(Qt5 5.4 REQUIRED COMPONENTS DBus Gui Xml)
+find_package(Qt5 5.4 REQUIRED COMPONENTS DBus Xml)
 
 find_package(PkgConfig REQUIRED)
 find_package(ICU REQUIRED)
